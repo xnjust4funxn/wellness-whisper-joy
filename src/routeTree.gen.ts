@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolsIndexRouteImport } from './routes/tools.index'
+import { Route as StrategyIndexRouteImport } from './routes/strategy.index'
+import { Route as PrivacyIndexRouteImport } from './routes/privacy.index'
+import { Route as DisclaimerIndexRouteImport } from './routes/disclaimer.index'
+import { Route as ContactIndexRouteImport } from './routes/contact.index'
+import { Route as ArticlesIndexRouteImport } from './routes/articles.index'
+import { Route as AboutIndexRouteImport } from './routes/about.index'
+import { Route as ArticlesSlugRouteImport } from './routes/articles.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsIndexRoute = ToolsIndexRouteImport.update({
+  id: '/tools/',
+  path: '/tools/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StrategyIndexRoute = StrategyIndexRouteImport.update({
+  id: '/strategy/',
+  path: '/strategy/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyIndexRoute = PrivacyIndexRouteImport.update({
+  id: '/privacy/',
+  path: '/privacy/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisclaimerIndexRoute = DisclaimerIndexRouteImport.update({
+  id: '/disclaimer/',
+  path: '/disclaimer/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactIndexRoute = ContactIndexRouteImport.update({
+  id: '/contact/',
+  path: '/contact/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticlesIndexRoute = ArticlesIndexRouteImport.update({
+  id: '/articles/',
+  path: '/articles/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutIndexRoute = AboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
+  id: '/articles/$slug',
+  path: '/articles/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
+  '/about/': typeof AboutIndexRoute
+  '/articles/': typeof ArticlesIndexRoute
+  '/contact/': typeof ContactIndexRoute
+  '/disclaimer/': typeof DisclaimerIndexRoute
+  '/privacy/': typeof PrivacyIndexRoute
+  '/strategy/': typeof StrategyIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
+  '/about': typeof AboutIndexRoute
+  '/articles': typeof ArticlesIndexRoute
+  '/contact': typeof ContactIndexRoute
+  '/disclaimer': typeof DisclaimerIndexRoute
+  '/privacy': typeof PrivacyIndexRoute
+  '/strategy': typeof StrategyIndexRoute
+  '/tools': typeof ToolsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
+  '/about/': typeof AboutIndexRoute
+  '/articles/': typeof ArticlesIndexRoute
+  '/contact/': typeof ContactIndexRoute
+  '/disclaimer/': typeof DisclaimerIndexRoute
+  '/privacy/': typeof PrivacyIndexRoute
+  '/strategy/': typeof StrategyIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/articles/$slug'
+    | '/about/'
+    | '/articles/'
+    | '/contact/'
+    | '/disclaimer/'
+    | '/privacy/'
+    | '/strategy/'
+    | '/tools/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/articles/$slug'
+    | '/about'
+    | '/articles'
+    | '/contact'
+    | '/disclaimer'
+    | '/privacy'
+    | '/strategy'
+    | '/tools'
+  id:
+    | '__root__'
+    | '/'
+    | '/articles/$slug'
+    | '/about/'
+    | '/articles/'
+    | '/contact/'
+    | '/disclaimer/'
+    | '/privacy/'
+    | '/strategy/'
+    | '/tools/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArticlesSlugRoute: typeof ArticlesSlugRoute
+  AboutIndexRoute: typeof AboutIndexRoute
+  ArticlesIndexRoute: typeof ArticlesIndexRoute
+  ContactIndexRoute: typeof ContactIndexRoute
+  DisclaimerIndexRoute: typeof DisclaimerIndexRoute
+  PrivacyIndexRoute: typeof PrivacyIndexRoute
+  StrategyIndexRoute: typeof StrategyIndexRoute
+  ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/': {
+      id: '/tools/'
+      path: '/tools'
+      fullPath: '/tools/'
+      preLoaderRoute: typeof ToolsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/strategy/': {
+      id: '/strategy/'
+      path: '/strategy'
+      fullPath: '/strategy/'
+      preLoaderRoute: typeof StrategyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy/': {
+      id: '/privacy/'
+      path: '/privacy'
+      fullPath: '/privacy/'
+      preLoaderRoute: typeof PrivacyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disclaimer/': {
+      id: '/disclaimer/'
+      path: '/disclaimer'
+      fullPath: '/disclaimer/'
+      preLoaderRoute: typeof DisclaimerIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact/': {
+      id: '/contact/'
+      path: '/contact'
+      fullPath: '/contact/'
+      preLoaderRoute: typeof ContactIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/': {
+      id: '/articles/'
+      path: '/articles'
+      fullPath: '/articles/'
+      preLoaderRoute: typeof ArticlesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/$slug': {
+      id: '/articles/$slug'
+      path: '/articles/$slug'
+      fullPath: '/articles/$slug'
+      preLoaderRoute: typeof ArticlesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArticlesSlugRoute: ArticlesSlugRoute,
+  AboutIndexRoute: AboutIndexRoute,
+  ArticlesIndexRoute: ArticlesIndexRoute,
+  ContactIndexRoute: ContactIndexRoute,
+  DisclaimerIndexRoute: DisclaimerIndexRoute,
+  PrivacyIndexRoute: PrivacyIndexRoute,
+  StrategyIndexRoute: StrategyIndexRoute,
+  ToolsIndexRoute: ToolsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

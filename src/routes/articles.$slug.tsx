@@ -34,7 +34,7 @@ export const Route = createFileRoute("/articles/$slug")({
 });
 
 function ArticlePage() {
-  const { article } = Route.useLoaderData();
+  const { article } = Route.useLoaderData() as { article: (typeof ARTICLES)[number] };
 
   const schema = {
     "@context": "https://schema.org",
