@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, Sparkle, Leaf, Moon, Brain, Dumbbell, Apple, Heart } from "lucide-react";
 import { Layout } from "@/components/Layout";
+import { HeroMotion } from "@/components/HeroMotion";
 import { ARTICLES } from "@/data/articles";
 import { CATEGORIES } from "@/data/site";
 import heroImg from "@/assets/hero.jpg";
@@ -67,13 +68,16 @@ function Home() {
             className="relative"
           >
             <div className="glass-strong rounded-[2.5rem] p-3 rotate-2">
-              <img
-                src={heroImg}
-                alt="Woman practicing yoga at sunrise overlooking the ocean"
-                width={1600}
-                height={1024}
-                className="rounded-[2rem] w-full h-[520px] object-cover"
-              />
+              <div className="relative rounded-[2rem] w-full h-[520px] overflow-hidden">
+                <img
+                  src={heroImg}
+                  alt="Woman practicing yoga at sunrise overlooking the ocean"
+                  width={1600}
+                  height={1024}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <HeroMotion />
+              </div>
             </div>
             <motion.div
               animate={{ y: [0, -10, 0] }}
